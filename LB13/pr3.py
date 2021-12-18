@@ -2,21 +2,27 @@
 # -*- coding: utf-8 -*-
 
 
-def done_laboratories(*args):
-    """ Количество успешно защищённых работ по дисциплине ОПИ
+def min_laboratories(**kwargs):
+    """ Минимальное количество сданных работ по ОПИ
 
-    На вход поступает количство сделанных лабораторных работ
+    На вход поступает имя студента и количество сданных работ
 
-    Функция выводит сколько работ вы успешно защитили :)
+    Функция выводит студента с наименьшим количеством работ
 
     """
-    if args:
-        laboratories = tuple(int(arg) for arg in args)
-        return laboratories
+    if kwargs:
+        min_labs = min(kwargs.values())
+        for student, labs in kwargs.items():
+            if labs == min_labs:
+                print(
+                    f"The least laboratories ({labs}) "
+                    f"has the student: {student}"
+                )
     else:
         return None
 
 
 if __name__ == "__main__":
-    labs = [i for i in input("Enter the numbers of laboratories: ").split()]
-    print(f"You have defended these laboratories: {done_laboratories(*labs)}")
+    min_laboratories(Elena=6, Dima=12, Oleg=3, Trofim=7)
+    min_laboratories(Sasha=9, Vitya=15, Aleksey=14)
+    min_laboratories(Efim=13)
