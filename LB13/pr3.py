@@ -3,6 +3,13 @@
 
 
 def done_laboratories(*args):
+    """ Количество успешно защищённых работ по дисциплине ОПИ
+
+    На вход поступает количство сделанных лабораторных работ
+
+    Функция выводит сколько работ вы успешно защитили :)
+
+    """
     if args:
         laboratories = tuple(int(arg) for arg in args)
         return laboratories
